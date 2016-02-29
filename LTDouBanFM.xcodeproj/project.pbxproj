@@ -7,21 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83E4917E2FDD8C014B497CC9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29084DDF74711EE3092E6B2A /* Pods.framework */; };
 		C890482A1C814AD900596FB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89048291C814AD900596FB0 /* AppDelegate.swift */; };
-		C890482C1C814AD900596FB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C890482B1C814AD900596FB0 /* ViewController.swift */; };
 		C890482F1C814AD900596FB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C890482D1C814AD900596FB0 /* Main.storyboard */; };
 		C89048311C814AD900596FB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89048301C814AD900596FB0 /* Assets.xcassets */; };
 		C89048341C814AD900596FB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C89048321C814AD900596FB0 /* LaunchScreen.storyboard */; };
+		C89048461C82A3B500596FB0 /* DiscView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89048451C82A3B500596FB0 /* DiscView.swift */; };
+		C89048491C82A3CE00596FB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89048481C82A3CE00596FB0 /* ViewController.swift */; };
+		C890484B1C82A67300596FB0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C890484A1C82A67300596FB0 /* TableViewController.swift */; };
+		C890484D1C82A68800596FB0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C890484C1C82A68800596FB0 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29084DDF74711EE3092E6B2A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40F55DF0FEFEE9A00159533E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		48B1B19E311537FC3EC72EB6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C89048261C814AD900596FB0 /* LTDouBanFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTDouBanFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89048291C814AD900596FB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C890482B1C814AD900596FB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C890482E1C814AD900596FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C89048301C814AD900596FB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C89048331C814AD900596FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C89048351C814AD900596FB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C890483B1C817F1700596FB0 /* LTDouBanFM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LTDouBanFM-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		C89048451C82A3B500596FB0 /* DiscView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscView.swift; sourceTree = "<group>"; };
+		C89048481C82A3CE00596FB0 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C890484A1C82A67300596FB0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C890484C1C82A68800596FB0 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +40,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E4917E2FDD8C014B497CC9 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14DA687E60AAB64E4FF9AD78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29084DDF74711EE3092E6B2A /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C890481D1C814AD900596FB0 = {
 			isa = PBXGroup;
 			children = (
 				C89048281C814AD900596FB0 /* LTDouBanFM */,
 				C89048271C814AD900596FB0 /* Products */,
+				E2CD887FFB5B25E290485A60 /* Pods */,
+				14DA687E60AAB64E4FF9AD78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +76,51 @@
 		C89048281C814AD900596FB0 /* LTDouBanFM */ = {
 			isa = PBXGroup;
 			children = (
+				C89048471C82A3CE00596FB0 /* Controller */,
+				C89048441C82A3B500596FB0 /* View */,
+				C89048431C82A3AE00596FB0 /* Model */,
 				C89048291C814AD900596FB0 /* AppDelegate.swift */,
-				C890482B1C814AD900596FB0 /* ViewController.swift */,
+				C890483B1C817F1700596FB0 /* LTDouBanFM-Bridging-Header.h */,
 				C890482D1C814AD900596FB0 /* Main.storyboard */,
 				C89048301C814AD900596FB0 /* Assets.xcassets */,
 				C89048321C814AD900596FB0 /* LaunchScreen.storyboard */,
 				C89048351C814AD900596FB0 /* Info.plist */,
 			);
 			path = LTDouBanFM;
+			sourceTree = "<group>";
+		};
+		C89048431C82A3AE00596FB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C89048441C82A3B500596FB0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C89048451C82A3B500596FB0 /* DiscView.swift */,
+				C890484C1C82A68800596FB0 /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C89048471C82A3CE00596FB0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C89048481C82A3CE00596FB0 /* ViewController.swift */,
+				C890484A1C82A67300596FB0 /* TableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E2CD887FFB5B25E290485A60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48B1B19E311537FC3EC72EB6 /* Pods.debug.xcconfig */,
+				40F55DF0FEFEE9A00159533E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +130,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C89048381C814AD900596FB0 /* Build configuration list for PBXNativeTarget "LTDouBanFM" */;
 			buildPhases = (
+				6502F50F41EE5AFF01AAFC86 /* Check Pods Manifest.lock */,
 				C89048221C814AD900596FB0 /* Sources */,
 				C89048231C814AD900596FB0 /* Frameworks */,
 				C89048241C814AD900596FB0 /* Resources */,
+				BE58EEAE8EDB04EADCECA99A /* Embed Pods Frameworks */,
+				49EDFB7E9C7C73ECE2F5227F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +193,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		49EDFB7E9C7C73ECE2F5227F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6502F50F41EE5AFF01AAFC86 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BE58EEAE8EDB04EADCECA99A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C89048221C814AD900596FB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C890482C1C814AD900596FB0 /* ViewController.swift in Sources */,
+				C890484D1C82A68800596FB0 /* TableViewCell.swift in Sources */,
+				C89048491C82A3CE00596FB0 /* ViewController.swift in Sources */,
+				C89048461C82A3B500596FB0 /* DiscView.swift in Sources */,
 				C890482A1C814AD900596FB0 /* AppDelegate.swift in Sources */,
+				C890484B1C82A67300596FB0 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,23 +359,30 @@
 		};
 		C89048391C814AD900596FB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48B1B19E311537FC3EC72EB6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = LTDouBanFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lt.HelloWorld.LTDouBanFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LTDouBanFM-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		C890483A1C814AD900596FB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40F55DF0FEFEE9A00159533E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = LTDouBanFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lt.HelloWorld.LTDouBanFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LTDouBanFM-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -285,6 +405,7 @@
 				C890483A1C814AD900596FB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
