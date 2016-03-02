@@ -7,15 +7,27 @@
 //
 
 import UIKit
+import RESideMenu
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var sideMenuController:RESideMenu?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let mainSB = UIStoryboard.init(name: "Main", bundle: nil)
+        let mainVC = mainSB.instantiateViewControllerWithIdentifier("mainVC")
+        let sideVC = mainSB.instantiateViewControllerWithIdentifier("sideVC")
+        
+        sideMenuController = RESideMenu.init(contentViewController: mainVC, leftMenuViewController: sideVC, rightMenuViewController: nil)
+        sideMenuController?.scaleContentView = false
+        sideMenuController?.scaleMenuView = false
+        self.window?.rootViewController = sideMenuController
+
         return true
     }
 

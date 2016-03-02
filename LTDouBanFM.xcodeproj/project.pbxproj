@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		83E4917E2FDD8C014B497CC9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29084DDF74711EE3092E6B2A /* Pods.framework */; };
+		C86094671C83E82D005D23EC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86094661C83E82D005D23EC /* Channel.swift */; };
+		C860946A1C83E9D1005D23EC /* HTTPTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86094691C83E9D1005D23EC /* HTTPTool.swift */; };
+		C860946C1C83EE84005D23EC /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = C860946B1C83EE84005D23EC /* Defines.swift */; };
+		C86094721C846165005D23EC /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86094711C846165005D23EC /* SideMenuController.swift */; };
+		C86094761C852F87005D23EC /* SongInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86094751C852F87005D23EC /* SongInfo.swift */; };
 		C890482A1C814AD900596FB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89048291C814AD900596FB0 /* AppDelegate.swift */; };
 		C890482F1C814AD900596FB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C890482D1C814AD900596FB0 /* Main.storyboard */; };
 		C89048311C814AD900596FB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89048301C814AD900596FB0 /* Assets.xcassets */; };
 		C89048341C814AD900596FB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C89048321C814AD900596FB0 /* LaunchScreen.storyboard */; };
 		C89048461C82A3B500596FB0 /* DiscView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89048451C82A3B500596FB0 /* DiscView.swift */; };
 		C89048491C82A3CE00596FB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89048481C82A3CE00596FB0 /* ViewController.swift */; };
-		C890484B1C82A67300596FB0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C890484A1C82A67300596FB0 /* TableViewController.swift */; };
-		C890484D1C82A68800596FB0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C890484C1C82A68800596FB0 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		29084DDF74711EE3092E6B2A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40F55DF0FEFEE9A00159533E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		48B1B19E311537FC3EC72EB6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C86094661C83E82D005D23EC /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		C86094691C83E9D1005D23EC /* HTTPTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTool.swift; sourceTree = "<group>"; };
+		C860946B1C83EE84005D23EC /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+		C86094711C846165005D23EC /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
+		C86094751C852F87005D23EC /* SongInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongInfo.swift; sourceTree = "<group>"; };
 		C89048261C814AD900596FB0 /* LTDouBanFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTDouBanFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89048291C814AD900596FB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C890482E1C814AD900596FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,8 +39,6 @@
 		C890483B1C817F1700596FB0 /* LTDouBanFM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LTDouBanFM-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		C89048451C82A3B500596FB0 /* DiscView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscView.swift; sourceTree = "<group>"; };
 		C89048481C82A3CE00596FB0 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C890484A1C82A67300596FB0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		C890484C1C82A68800596FB0 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,15 @@
 				29084DDF74711EE3092E6B2A /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C86094681C83E8D4005D23EC /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C86094691C83E9D1005D23EC /* HTTPTool.swift */,
+				C860946B1C83EE84005D23EC /* Defines.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		C890481D1C814AD900596FB0 = {
@@ -76,6 +91,7 @@
 		C89048281C814AD900596FB0 /* LTDouBanFM */ = {
 			isa = PBXGroup;
 			children = (
+				C86094681C83E8D4005D23EC /* Utility */,
 				C89048471C82A3CE00596FB0 /* Controller */,
 				C89048441C82A3B500596FB0 /* View */,
 				C89048431C82A3AE00596FB0 /* Model */,
@@ -92,6 +108,8 @@
 		C89048431C82A3AE00596FB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C86094661C83E82D005D23EC /* Channel.swift */,
+				C86094751C852F87005D23EC /* SongInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				C89048451C82A3B500596FB0 /* DiscView.swift */,
-				C890484C1C82A68800596FB0 /* TableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				C89048481C82A3CE00596FB0 /* ViewController.swift */,
-				C890484A1C82A67300596FB0 /* TableViewController.swift */,
+				C86094711C846165005D23EC /* SideMenuController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -246,11 +263,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C890484D1C82A68800596FB0 /* TableViewCell.swift in Sources */,
+				C86094761C852F87005D23EC /* SongInfo.swift in Sources */,
+				C860946C1C83EE84005D23EC /* Defines.swift in Sources */,
 				C89048491C82A3CE00596FB0 /* ViewController.swift in Sources */,
+				C86094671C83E82D005D23EC /* Channel.swift in Sources */,
 				C89048461C82A3B500596FB0 /* DiscView.swift in Sources */,
+				C86094721C846165005D23EC /* SideMenuController.swift in Sources */,
 				C890482A1C814AD900596FB0 /* AppDelegate.swift in Sources */,
-				C890484B1C82A67300596FB0 /* TableViewController.swift in Sources */,
+				C860946A1C83E9D1005D23EC /* HTTPTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +383,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = LTDouBanFM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lt.HelloWorld.LTDouBanFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -378,7 +403,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = LTDouBanFM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lt.HelloWorld.LTDouBanFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,13 +1,19 @@
 PODS:
   - AFSoundManager (2.1)
   - Alamofire (3.1.2)
+  - RESideMenu (4.0.7)
+  - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
   - AFSoundManager (~> 2.1)
   - Alamofire (~> 3.1.2)
+  - RESideMenu (~> 4.0.7)
+  - SwiftyJSON (~> 2.3.1)
 
 SPEC CHECKSUMS:
   AFSoundManager: 232af6154e736e6b2d8c93fafebfafd14fad7510
   Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 
 COCOAPODS: 0.39.0

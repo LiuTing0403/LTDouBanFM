@@ -11,6 +11,7 @@ import UIKit
 class DiscView: UIView {
 
     func rotate() {
+        print("rotating")
         let rotatingAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotatingAnimation.fromValue = 0
         rotatingAnimation.toValue = M_PI
@@ -23,12 +24,15 @@ class DiscView: UIView {
     }
     
     func pauseAnimation() {
+        print("pause disc rotating animation")
         let pausedTime = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         layer.speed = 0
         layer.timeOffset = pausedTime
     }
     
     func resumeAnimation() {
+        
+        print("resume disc rotating animation")
         let pausedTime = layer.timeOffset
         layer.speed = 1
         layer.timeOffset = 0
