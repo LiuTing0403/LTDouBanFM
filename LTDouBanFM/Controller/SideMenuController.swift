@@ -103,6 +103,7 @@ class SideMenuController: UITableViewController, RESideMenuDelegate {
         
         if mainVC.channelID != selectedChannel {
             mainVC.channelID = selectedChannel
+
         }
         
     }

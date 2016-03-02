@@ -33,25 +33,27 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var singerNameLabel: UILabel!
     
-  
+    var showSideMenu = false
+    var player:AFSoundPlayback?
+    var audioItem:AFSoundItem?
+    var playedTime:Int = 0
+    
+    
+    //用来控制播放与暂停button的图片
     var playingAudio = true {
         didSet {
             if playingAudio {
-                
-                resumePlayingAudio()
                 pauseAndResumeButton.setImage(UIImage(named: "pause"), forState: .Normal)
             } else {
                 
-                stopPlayingAudio()
                 pauseAndResumeButton.setImage(UIImage(named: "resume"), forState: .Normal)
             }
         }
     }
     
-    var showSideMenu = false
     
+    //每次歌曲信息重置后都重新设置图片，播放新的音频
     var songInfo:SongInfo? {
-        //每次歌曲信息重置后都重新设置图片，播放新的音频
         didSet{
             setAlbumPicture((self.songInfo?.pictureURL)!)
             songTitleLabel.text = self.songInfo?.songTitle
@@ -60,41 +62,42 @@ class ViewController: UIViewController {
         }
     }
     
-    var player:AFSoundPlayback?
-    var audioItem:AFSoundItem?
-    var playedTime:Int = 0
+    //重置channelID后播放新的channel
     var channelID:Int = 0 {
-        //重置channelID后播放新的channel
         didSet{
-            stopPlayingAudio()
-        
-            playSelectedChannel(channelID)
-            playingAudio = true
+            if playingAudio {
+                player?.pause()
+                playSelectedChannel(self.channelID)
+            } else {
+                playingAudio = true
+            
+                resumePlayingAnimation({ () -> Void in
+                self.playSelectedChannel(self.channelID)
+                })
+            }
             print("channelID is \(channelID)")
         }
     }
     
+    //第一次load view时默认播放channel 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpSlider()
-
         playSelectedChannel(channelID)
         print("view controller did load")
         
     }
-     override func viewDidAppear(animated: Bool) {
+    //添加blur效果，在view did layout subview之后，调整needle的anchor
+    override func viewDidAppear(animated: Bool) {
         let needleOldFrame = needlePic.frame
         needlePic.layer.anchorPoint = CGPointMake(0.25, 0.15)
         needlePic.frame = needleOldFrame
-        
         addBlurView()
-
         print("channelID is \(channelID)")
     }
-    
-    override func viewDidLayoutSubviews() {
-//        addBlurView()
+    //status bar 默认红色
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+      return UIStatusBarStyle.LightContent
     }
     
 
@@ -118,9 +121,17 @@ class ViewController: UIViewController {
     
     @IBAction func pauseAndResumeButton(sender: UIButton) {
         
-
         playingAudio = !playingAudio
-        print(playingAudio.boolValue)
+        if playingAudio {
+            resumePlayingAnimation(){()-> Void in
+                self.player?.play()
+            }
+        } else {
+            stopPlayingAnimation(){()-> Void in
+                self.player?.pause()
+            }
+
+        }
     }
     
     
@@ -130,11 +141,21 @@ class ViewController: UIViewController {
         slider.value = 0
         playedTimeLabel.text = "00:00"
         totalTimeLabel.text = "00:00"
+        
         if playingAudio {
-            playingAudio = false
+            
+            player?.pause()
+        
+            
+            self.playSelectedChannel(self.channelID)
+            
+        } else {
+            playingAudio = true
+            resumePlayingAnimation(){ Void in
+                self.playSelectedChannel(self.channelID)
+            }
         }
-        playingAudio = true
-        playSelectedChannel(channelID)
+
 
     }
     
@@ -168,7 +189,7 @@ class ViewController: UIViewController {
         
     }
     //暂停后继续播放，动画结束后播放音频
-    func resumePlayingAudio() {
+    func resumePlayingAnimation(completion:(()->Void)?) {
         
         print("start playing audio")
         
@@ -177,17 +198,22 @@ class ViewController: UIViewController {
             self.needlePic.transform = CGAffineTransformRotate(self.needlePic.transform, CGFloat(M_PI/8))
             }) { (finished) -> Void in
             self.rotatingView.resumeAnimation()
-            self.player?.play()
+                if completion != nil {
+                    completion!()
+                }
         }
     }
     
     //暂停播放
-    func stopPlayingAudio() {
+    func stopPlayingAnimation(completion:(()->Void)?) {
         
+        if (completion != nil) {
+            completion!()
+        }
         print("stop playing audio")
         
         rotatingView.pauseAnimation()
-        player?.pause()
+
         
         UIView.animateWithDuration(0.5, delay: 0, options: .CurveLinear, animations: { () -> Void in
             
@@ -201,6 +227,8 @@ class ViewController: UIViewController {
 
     
     //MARK:网络请求相关
+    
+    //请求歌曲信息
     func getSongInfo(channelID:Int){
         
         print("get song info")
@@ -230,7 +258,7 @@ class ViewController: UIViewController {
        
 
     }
-    
+    //设置图片
     func setAlbumPicture(picURL:NSURL) {
         
         print("set album picture")
@@ -242,33 +270,36 @@ class ViewController: UIViewController {
             self.backgroundPic.image = UIImage(data: albumPicData)
         }
     }
-    
+    //播放器
     func playAudio(songURL:NSURL) {
         
         print("play Audio with URL")
         
-        audioItem = AFSoundItem(streamingURL: songURL)
-        player = AFSoundPlayback(item: audioItem)
-        player!.play()
+        if let audioItem = AFSoundItem(streamingURL: songURL) {
+            player = AFSoundPlayback(item: audioItem)
+            player!.play()
         
-        player!.listenFeedbackUpdatesWithBlock({ (item) -> Void in
+            player!.listenFeedbackUpdatesWithBlock({ (item) -> Void in
             
             self.playedTime = item.timePlayed
             self.totalTimeLabel.text = self.timeLabelText(item.duration)
             self.playedTimeLabel.text = self.timeLabelText(item.timePlayed)
             self.slider.value = Float(item.timePlayed) / Float(item.duration)
             
+            print(item.timePlayed)
+            print(self.player?.status.rawValue)
+            
             }) { (item) -> Void in
                 
                 print("a song end")
                 
                 self.getSongInfo(self.channelID)
-                
+        }
         }
         
 
     }
-    
+    //时间转换
     func timeLabelText(seconds:Int)->String{
         
         var min = 0;
@@ -284,10 +315,6 @@ class ViewController: UIViewController {
         return text(min)+":"+text(sec)
 
     }
-    
-    
-    
-    
 
 }
 
