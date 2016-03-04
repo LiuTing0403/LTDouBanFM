@@ -78,7 +78,8 @@
                                                         <exclude reference="SjD-sh-Av4"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="289"/>
                                                     <mask key="constraints">
                                                         <include reference="SjD-sh-Av4"/>
                                                     </mask>
@@ -116,7 +117,8 @@
                                                 <exclude reference="jjb-Pu-tn6"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="151" width="288" height="289"/>
                                             <mask key="subviews">
                                                 <include reference="O4E-6c-TBa"/>
                                                 <include reference="GeL-gs-AJ6"/>
@@ -240,7 +242,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xu-jH-zZ2">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xu-jH-zZ2">
                                         <rect key="frame" x="13" y="11" width="26" height="22"/>
                                         <state key="normal" image="cm2_play_icn_more"/>
                                         <connections>
@@ -262,8 +264,8 @@
                                     <constraint firstAttribute="height" constant="44" id="c3k-31-qXb">
                                         <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                                     </constraint>
-                                    <constraint firstAttribute="bottom" secondItem="3Xu-jH-zZ2" secondAttribute="bottom" constant="12" id="fjs-8k-hB6">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="13"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Xu-jH-zZ2" secondAttribute="bottom" constant="5" id="fjs-8k-hB6">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="2"/>
                                     </constraint>
                                     <constraint firstItem="UIW-wn-gnx" firstAttribute="centerX" secondItem="E2Z-ca-3TK" secondAttribute="centerX" id="gif-gF-Yv4"/>
                                     <constraint firstItem="0Io-c1-qH2" firstAttribute="top" secondItem="E2Z-ca-3TK" secondAttribute="top" id="pVg-Dh-h80">
@@ -279,19 +281,19 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="fjs-8k-hB6"/>
-                                        <exclude reference="16v-DS-JK0"/>
-                                        <exclude reference="shb-Gh-1Al"/>
                                         <exclude reference="WbK-Ao-Nkz"/>
                                         <exclude reference="s2T-Pa-qcX"/>
+                                        <exclude reference="16v-DS-JK0"/>
+                                        <exclude reference="shb-Gh-1Al"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="fjs-8k-hB6"/>
-                                        <include reference="16v-DS-JK0"/>
-                                        <include reference="shb-Gh-1Al"/>
                                         <include reference="WbK-Ao-Nkz"/>
                                         <include reference="s2T-Pa-qcX"/>
+                                        <include reference="16v-DS-JK0"/>
+                                        <include reference="shb-Gh-1Al"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -309,11 +311,11 @@
                                         <rect key="frame" x="76" y="18" width="28" height="28"/>
                                         <state key="normal" image="cm2_rdi_btn_love_dis"/>
                                     </button>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjl-fT-9fp" userLabel="playButton">
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjl-fT-9fp" userLabel="playButton">
                                         <rect key="frame" x="285" y="17" width="30" height="30"/>
                                         <state key="normal" image="pause"/>
                                         <connections>
-                                            <action selector="pauseAndResumeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="49b-vo-iEz"/>
+                                            <action selector="didClickPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mze-HI-Uos"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -419,15 +421,15 @@
                                 <exclude reference="k0b-sJ-OI7"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0CM-uU-WTl"/>
-                                <exclude reference="IKY-hB-RBI"/>
-                                <exclude reference="x0h-YO-KRv"/>
-                                <exclude reference="CNj-tN-F6Q"/>
-                                <exclude reference="QEI-Jb-OpU"/>
-                                <exclude reference="crh-8t-3PH"/>
                                 <exclude reference="Kz7-8x-0hS"/>
                                 <exclude reference="LQV-uJ-Vuy"/>
                                 <exclude reference="Mzk-D5-dXh"/>
+                                <exclude reference="CNj-tN-F6Q"/>
+                                <exclude reference="QEI-Jb-OpU"/>
+                                <exclude reference="crh-8t-3PH"/>
+                                <exclude reference="0CM-uU-WTl"/>
+                                <exclude reference="IKY-hB-RBI"/>
+                                <exclude reference="x0h-YO-KRv"/>
                                 <exclude reference="kXz-uh-43f"/>
                                 <exclude reference="kDl-4V-hWV"/>
                                 <exclude reference="3uw-Ut-rOu"/>
@@ -442,15 +444,15 @@
                                 <include reference="k0b-sJ-OI7"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0CM-uU-WTl"/>
-                                <include reference="IKY-hB-RBI"/>
-                                <include reference="x0h-YO-KRv"/>
-                                <include reference="CNj-tN-F6Q"/>
-                                <include reference="QEI-Jb-OpU"/>
-                                <include reference="crh-8t-3PH"/>
                                 <include reference="Kz7-8x-0hS"/>
                                 <include reference="LQV-uJ-Vuy"/>
                                 <include reference="Mzk-D5-dXh"/>
+                                <include reference="CNj-tN-F6Q"/>
+                                <include reference="QEI-Jb-OpU"/>
+                                <include reference="crh-8t-3PH"/>
+                                <include reference="0CM-uU-WTl"/>
+                                <include reference="IKY-hB-RBI"/>
+                                <include reference="x0h-YO-KRv"/>
                                 <include reference="kXz-uh-43f"/>
                                 <exclude reference="kDl-4V-hWV"/>
                                 <include reference="3uw-Ut-rOu"/>
@@ -464,6 +466,7 @@
                         <outlet property="albumPic" destination="O4E-6c-TBa" id="aXh-F5-WEc"/>
                         <outlet property="backgroundPic" destination="KBL-Lg-DVH" id="5yb-TJ-aXO"/>
                         <outlet property="needlePic" destination="4qc-0c-IOg" id="rJh-Lw-882"/>
+                        <outlet property="nextButton" destination="Vuf-gl-rck" id="gYS-hJ-oT6"/>
                         <outlet property="pauseAndResumeButton" destination="Yjl-fT-9fp" id="Blq-tV-RyE"/>
                         <outlet property="playedTimeLabel" destination="nxq-Gz-m5S" id="vtd-1M-NfV"/>
                         <outlet property="rotatingView" destination="qza-9S-KfR" id="y8T-B6-ME1"/>

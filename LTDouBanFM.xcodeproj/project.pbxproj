@@ -19,6 +19,7 @@
 		C89048341C814AD900596FB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C89048321C814AD900596FB0 /* LaunchScreen.storyboard */; };
 		C89048461C82A3B500596FB0 /* DiscView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89048451C82A3B500596FB0 /* DiscView.swift */; };
 		C89048491C82A3CE00596FB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89048481C82A3CE00596FB0 /* ViewController.swift */; };
+		C8CE2F271C884D2300BA45E6 /* LTAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE2F261C884D2300BA45E6 /* LTAudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		C890483B1C817F1700596FB0 /* LTDouBanFM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LTDouBanFM-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		C89048451C82A3B500596FB0 /* DiscView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscView.swift; sourceTree = "<group>"; };
 		C89048481C82A3CE00596FB0 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C8CE2F261C884D2300BA45E6 /* LTAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTAudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				C86094691C83E9D1005D23EC /* HTTPTool.swift */,
 				C860946B1C83EE84005D23EC /* Defines.swift */,
+				C8CE2F261C884D2300BA45E6 /* LTAudioPlayer.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				C89048461C82A3B500596FB0 /* DiscView.swift in Sources */,
 				C86094721C846165005D23EC /* SideMenuController.swift in Sources */,
 				C890482A1C814AD900596FB0 /* AppDelegate.swift in Sources */,
+				C8CE2F271C884D2300BA45E6 /* LTAudioPlayer.swift in Sources */,
 				C860946A1C83E9D1005D23EC /* HTTPTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

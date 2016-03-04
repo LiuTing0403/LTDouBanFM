@@ -11,6 +11,7 @@ import SwiftyJSON
 import AFSoundManager
 
 
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var backgroundPic: UIImageView!
@@ -33,11 +34,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var singerNameLabel: UILabel!
     
-    var showSideMenu = false
-    var player:AFSoundPlayback?
-    var audioItem:AFSoundItem?
-    var playedTime:Int = 0
+    @IBOutlet weak var nextButton: UIButton!
     
+    
+    
+    var showSideMenu = false
+    var playedTime:Int = 0
+    var myAudioPlayer = LTAudioPlayer()
     
     //用来控制播放与暂停button的图片
     var playingAudio = true {
@@ -58,7 +61,25 @@ class ViewController: UIViewController {
             setAlbumPicture((self.songInfo?.pictureURL)!)
             songTitleLabel.text = self.songInfo?.songTitle
             singerNameLabel.text = self.songInfo?.artist
-            playAudio((self.songInfo?.songURL)!)
+//            myAudioPlayer.configBackgroundPlayingInfo = {
+//                ()->Void in
+//                self.setBackgroundPlayingInfoOnScreen()
+//            }
+            myAudioPlayer.playSongWithURL((songInfo?.songURL)!, feedbackblock: { (item) -> Void in
+                
+                    self.playedTime = item.timePlayed
+                    self.totalTimeLabel.text = self.timeLabelText(item.duration)
+                    self.playedTimeLabel.text = self.timeLabelText(item.timePlayed)
+                    self.slider.value = Float(item.timePlayed) / Float(item.duration)
+                
+                    print(item.timePlayed)
+                
+                }) { () -> Void in
+                    print("a song end")
+                    
+                    self.getSongInfo(self.channelID)
+            }
+
         }
     }
     
@@ -66,8 +87,8 @@ class ViewController: UIViewController {
     var channelID:Int = 0 {
         didSet{
             if playingAudio {
-                player?.pause()
-                playSelectedChannel(self.channelID)
+                myAudioPlayer.pause()
+                playSelectedChannel(self.channelID) 
             } else {
                 playingAudio = true
             
@@ -79,6 +100,9 @@ class ViewController: UIViewController {
         }
     }
     
+
+    //MARK:view life cycle
+    
     //第一次load view时默认播放channel 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,11 +113,15 @@ class ViewController: UIViewController {
     }
     //添加blur效果，在view did layout subview之后，调整needle的anchor
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         let needleOldFrame = needlePic.frame
         needlePic.layer.anchorPoint = CGPointMake(0.25, 0.15)
         needlePic.frame = needleOldFrame
         addBlurView()
         print("channelID is \(channelID)")
+
+        UIApplication.sharedApplication().endReceivingRemoteControlEvents()
+        self.resignFirstResponder()
     }
     //status bar 默认红色
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -119,16 +147,16 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func pauseAndResumeButton(sender: UIButton) {
+    @IBAction func didClickPauseButton(sender: UIButton) {
         
         playingAudio = !playingAudio
         if playingAudio {
             resumePlayingAnimation(){()-> Void in
-                self.player?.play()
+                self.myAudioPlayer.play()
             }
         } else {
             stopPlayingAnimation(){()-> Void in
-                self.player?.pause()
+                self.myAudioPlayer.pause()
             }
 
         }
@@ -144,7 +172,7 @@ class ViewController: UIViewController {
         
         if playingAudio {
             
-            player?.pause()
+            myAudioPlayer.pause()
         
             
             self.playSelectedChannel(self.channelID)
@@ -270,35 +298,7 @@ class ViewController: UIViewController {
             self.backgroundPic.image = UIImage(data: albumPicData)
         }
     }
-    //播放器
-    func playAudio(songURL:NSURL) {
-        
-        print("play Audio with URL")
-        
-        if let audioItem = AFSoundItem(streamingURL: songURL) {
-            player = AFSoundPlayback(item: audioItem)
-            player!.play()
-        
-            player!.listenFeedbackUpdatesWithBlock({ (item) -> Void in
-            
-            self.playedTime = item.timePlayed
-            self.totalTimeLabel.text = self.timeLabelText(item.duration)
-            self.playedTimeLabel.text = self.timeLabelText(item.timePlayed)
-            self.slider.value = Float(item.timePlayed) / Float(item.duration)
-            
-            print(item.timePlayed)
-            print(self.player?.status.rawValue)
-            
-            }) { (item) -> Void in
-                
-                print("a song end")
-                
-                self.getSongInfo(self.channelID)
-        }
-        }
-        
 
-    }
     //时间转换
     func timeLabelText(seconds:Int)->String{
         
@@ -315,6 +315,85 @@ class ViewController: UIViewController {
         return text(min)+":"+text(sec)
 
     }
+    
+    //MARK:后台播放控制
+
+    func setBackgroundPlayingInfoOnScreen() {
+        
+        let artWork = MPMediaItemArtwork(image: UIImage(named: "album")!)
+        
+        let playingInfo:[String:AnyObject] = [MPMediaItemPropertyAlbumTitle:"专辑名", MPMediaItemPropertyArtist:"歌手名",
+            MPMediaItemPropertyTitle:"歌曲名",
+            MPMediaItemPropertyArtwork:artWork]
+        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = playingInfo
+        
+    }
+    
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        print("did receive REMOTE event")
+        if event!.type == UIEventType.RemoteControl {
+            switch event!.subtype {
+            case UIEventSubtype.RemoteControlPause: myAudioPlayer.pause()
+            case UIEventSubtype.RemoteControlPlay: myAudioPlayer.play()
+            case UIEventSubtype.RemoteControlNextTrack: nextSong(nextButton)
+                
+            default:break
+                
+                
+            }
+        }
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+//        if myAudioPlayer.audioPlayer!.status == AFSoundStatus.Playing {
+            UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        
+            self.becomeFirstResponder()
+            setBackgroundPlayingInfoOnScreen()
+//        
+//        } else {
+//        
+//            UIApplication.sharedApplication().endReceivingRemoteControlEvents()
+//            self.resignFirstResponder()
+//        }
+    }
+    
+    
+//    func setRemoteControlWithEvent(receivedEvent:UIEvent) {
+////        
+////        let remoteCommandCenter = MPRemoteCommandCenter.sharedCommandCenter()
+////        remoteCommandCenter.pauseCommand.addTargetWithHandler { (event) -> MPRemoteCommandHandlerStatus in
+////            self.myAudioPlayer.pause()
+////            return MPRemoteCommandHandlerStatus.Success
+////        }
+////        remoteCommandCenter.playCommand.addTargetWithHandler { (event) -> MPRemoteCommandHandlerStatus in
+////            self.myAudioPlayer.play()
+////            return MPRemoteCommandHandlerStatus.Success
+////        }
+////        remoteCommandCenter.nextTrackCommand.addTargetWithHandler { (event) -> MPRemoteCommandHandlerStatus in
+////            self.nextSong(nextButton)
+////            return MPRemoteCommandHandlerStatus.su
+////        }
+//        if receivedEvent.type == UIEventType.RemoteControl {
+//            switch receivedEvent.subtype {
+//            case UIEventSubtype.RemoteControlPause: myAudioPlayer.pause()
+//            case UIEventSubtype.RemoteControlPlay: myAudioPlayer.play()
+//            case UIEventSubtype.RemoteControlNextTrack: nextSong(nextButton)
+//                
+//            default:break
+//                
+//                
+//            }
+//        }
+    
+ //   }
+    
 
 }
 
