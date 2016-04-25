@@ -125,7 +125,7 @@ class ViewController: UIViewController {
     }
     //status bar 默认红色
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-      return UIStatusBarStyle.LightContent
+        return UIStatusBarStyle.LightContent
     }
     
 
